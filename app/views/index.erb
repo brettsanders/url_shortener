@@ -9,5 +9,5 @@ Long Url: <input type="text" name="full_url">
 
 <% if @url %>
 <h3>your original URL: <%= @url.full_url %></h3>
-<h3>new, shortened URL: http://localhost:9393/<%= @url.short_url %></h3>
+<h3>new, shortened URL: <a href="http://localhost:9393/<%= @url.short_url %>">http://localhost:9393/<%= @url.short_url %></a></h3>
 <% end %>
