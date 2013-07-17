@@ -1,7 +1,8 @@
 class Url < ActiveRecord::Base
-  # Remember to create a migration!
- before_create :shorten_url
- validates :full_url, format: { with: } 
+  
+before_create :shorten_url
+validates :full_url, format: { with: /http[s]?:\/\/[\w\.]*/ }, 
+                     presence: true
 
 private
 
@@ -16,8 +17,3 @@ private
   end
 end
 
-# Any non-empty string
-# Any non-empty string that starts with "http://" or "https://"
-# Any string that the Ruby URI module says is valid
-# Any URL-looking thing which responds to a HTTP request, 
-# i.e., we actually check to see if the URL is accessible via HTTP

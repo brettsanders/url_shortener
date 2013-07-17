@@ -1,10 +1,13 @@
 get '/' do
   # Look in app/views/index.erb
+  @notification = "Welcome to our Site"
   erb :index
 end
 
 post '/urls' do
-  @url = Url.find_or_create_by_full_url(params[:full_url])
+  p params[:full_url]
+  @url = Url.create(full_url: params[:full_url])
+  @notification = "Your Email format is Invalid" unless @url.valid?
   erb :index
 end
 
