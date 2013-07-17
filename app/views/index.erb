@@ -1,8 +1,13 @@
 <h1>URL Shortener</h1>
 
-<%= params[:full_url] %>
+<% params[:full_url] %>
 
 <form name="input" action="/urls" method="post">
 Long Url: <input type="text" name="full_url">
 <input type="submit" value="Submit">
 </form>
+
+<% if @url %>
+<h3>your original URL: <%= @url.full_url %></h3>
+<h3>new, shortened URL: http://localhost:9393/<%= @url.short_url %></h3>
+<% end %>

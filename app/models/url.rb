@@ -5,7 +5,7 @@ class Url < ActiveRecord::Base
 private
 
   def random_short_url
-    short_url = "http://localhost:9393/"
+    short_url = ""
     6.times { short_url += rand(100).to_s }
     short_url
   end
